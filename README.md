@@ -52,6 +52,12 @@ To exit the event loop, process.exit().
 * Buffer: A construct that that holds chunks of multiple data before the data is fully parsed or released.
 <br>Able to arbitrarily do something to the buffer with codes.
 
+**Event Loop**
+<br>Handler of event callbacks that have less time consuming operations.
+<br>A process that keeps javascript process keep running.
+
+⚠️ Heavy operations with heavy files are handled by worker pool, which runs on different threads.
+<br> When the heavy task is finished, the worker pool triggers a callback to event loop, notifying the job is done.
 
 <br id="">
 💡 Express.js
