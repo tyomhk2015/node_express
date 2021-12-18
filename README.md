@@ -59,7 +59,40 @@ To exit the event loop, process.exit().
 ⚠️ Heavy operations with heavy files are handled by worker pool, which runs on different threads.
 <br> When the heavy task is finished, the worker pool triggers a callback to event loop, notifying the job is done.
 
+**Package.json**
+<br>Customized scripts are executable by using 'run'.
+<pre>
+"scripts": {
+   ...
+   "start-server": "node server.js"
+   ...
+},
+
+  $ npm run start-server
+
+--
+install --save     = install the dependency for the production only.
+install --save-dev = install the dependency for the development only.
+install -g         = install the dependency as global, accesible anywhere in the computer.
+</pre>
+
+
 <br id="">
 💡 Express.js
-<br>Homepage: https://expressjs.com/
-<br>Enables to concentrate more on business logic than detailed coding.
+<br>Homepage: <a href="https://expressjs.com/">https://expressjs.com/</a>
+<br>Enables to write server logic more simpler than node.js.
+<br>Depending on the type of data you handle, the logic has to be different.
+<br>To solve the problem, mentioned right above this sentence, a framework is used.
+<br>Framework: Tools filled with Helper functions & rules for building an application.
+<br>Alternative choice for express.js
+<pre>
+Adonis.js / Koa / Sails.js
+(Larvel 
+inspired)
+</pre>
+Express.js is all about middle wares.
+<br>Middleware: One or more functions that intervene an incoming request until a responses is returned.
+<pre>
+Request   =>    Middleware    =>    Middleware    =>    Response => ...
+          (req, res, next) = {} | (req, res, next) = {}
+</pre>
