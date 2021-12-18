@@ -36,7 +36,7 @@ const reqHandler = (req, res)  => {
     res.setHeader('Content-Type', 'text/html');
     res.write('<html>');
     res.write('<head><title>HOLOLIVE SAIKOU!</title></head>');
-    res.write('<body><h1>WATAME\'s UI BEAM!!</h1><form action="/message" method="POST"><input type="text" name="idol" placeholder="seiso"><button>JOIN US</button></form></body>');
+    res.write('<body><h1>WATAME\'s UI BEAM!!!!!</h1><form action="/message" method="POST"><input type="text" name="idol" placeholder="seiso"><button>JOIN US</button></form></body>');
     res.write('</html>');
     res.end();
   }
