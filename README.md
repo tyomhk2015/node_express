@@ -80,6 +80,7 @@ install -g         = install the dependency as global, accesible anywhere in the
 <br id="">
 💡 Express.js
 <br>Homepage: <a href="https://expressjs.com/">https://expressjs.com/</a>
+<br>Doc: <a href="https://expressjs.com/en/4x/api.html#app">https://expressjs.com/</a>
 <br>Enables to write server logic more simpler than node.js.
 <br>Depending on the type of data you handle, the logic has to be different.
 <br>To solve the problem, mentioned right above this sentence, a framework is used.
@@ -95,4 +96,30 @@ Express.js is all about middle wares.
 <pre>
 Request   =>    Middleware    =>    Middleware    =>    Response => ...
           (req, res, next) = {} | (req, res, next) = {}
+
+---
+
+// Allows to add middleware functions.
+express_app.use((req, res, next) => {
+  // next: A function that allows the request to travel on to the next middleware.
+
+  // IMO: No next function means the request will no longer go to next middleware 
+  // and should be submitted for response.
+
+  // This function will be invoked on every requests.
+  console.log("Int the 1st middleware.");
+
+  // Allows the request to move to the next middleware!
+  // If not the specified, the req will keep staying in this scope.
+  next();
+});
+
+express_app.use((req, res, next) => {
+  console.log("Int the 2nd middleware.");
+
+  // Sends response.
+  // The HTML Header, and Content-Type is done for you depending on what you insert as an argument.
+  // Default is text/html.
+  res.send('&#60;h1&#62;UI BEAM!!&#60;/h1&#62;');
+});
 </pre>
