@@ -1,5 +1,4 @@
 // Brief web server.
-const http = require('http');
 const express = require('express');
 
 // This has a valid request handler.
@@ -22,7 +21,12 @@ express_app.use((req, res, next) => {
 
 express_app.use((req, res, next) => {
   console.log("Int the 2nd middleware.");
+
+  // Sends response.
+  // The HTML Header, and Content-Type is done for you depending on what you insert as an argument.
+  // Default is text/html.
+  res.send('<h1>UI BEAM!!</h1>');
 });
 
-const server = http.createServer(express_app);
-server.listen(9000);
+// Start the server and listens for requests.
+express_app.listen(9000);
