@@ -91,6 +91,9 @@ Adonis.js / Koa / Sails.js
 (Larvel 
 inspired)
 </pre>
+
+**Middleware**
+
 Express.js is all about middle wares.
 <br>Middleware: One or more functions that intervene an incoming request until a responses is returned.
 <pre>
@@ -123,10 +126,27 @@ express_app.use((req, res, next) => {
   res.send('&#60;h1&#62;UI BEAM!!&#60;/h1&#62;');
 });
 </pre>
+
+**express.js method setting**
+
 For specifying HTTP methods
 * app.use : Listens to all types of requests.
 * app.get : Listens to GET request.
 * app.post : Listens to POST request.
 * app.put : Listens to PUT request.
 * and more.
-<br>
+
+**Returning File & Path**
+
+To acquire the correct path for the project, using 'path' feature of express.js is recommended.
+<br>Otherwise, errors will be occured.
+<br>join() will concatenate the path by using arguments.
+<br>Thus manually specifiying the path with ' \\ ' or ' / ' is unnecessary, which may cause errors depending on the OS the project is deployed on.
+<pre>
+const path = require('path');
+...
+  res.sendFile(path.join(__dirname, '../', 'views', 'home.html'));
+...
+
+// BTW, express.js will automatically handle the HTTP header of the response, text/html.
+</pre>

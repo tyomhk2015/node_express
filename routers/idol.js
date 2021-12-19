@@ -1,11 +1,11 @@
 const express = require('express');
+const path = require('path');
 
 const router = express.Router();
 
 router.get('/idol', (req, res, next) => {
   console.log("In the add-idol middleware.");
-  const form = '<html><body><h1>WATAME\'s UI BEAM!!!</h1><form action="/add/idol" method="POST"><input type="text" name="idol" placeholder="Seiso"><button>JOIN US</button></form></body></html>';
-  res.send(form);
+  res.sendFile(path.join(__dirname, '..', 'views', 'idol.html'));
 });
 
 // app.use() accepts all requests.
