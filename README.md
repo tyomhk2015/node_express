@@ -123,3 +123,10 @@ express_app.use((req, res, next) => {
   res.send('&#60;h1&#62;UI BEAM!!&#60;/h1&#62;');
 });
 </pre>
+For specifying HTTP methods
+* app.use : Listens to all types of requests.
+* app.get : Listens to GET request.
+* app.post : Listens to POST request.
+* app.put : Listens to PUT request.
+* and more.
+<br>
