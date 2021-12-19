@@ -3,6 +3,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const homeRouter = require('./routers/home');
 const idolRouter = require('./routers/idol');
+const exceptionRouter = require('./routers/exception');
 
 const express_app = express();
 
@@ -18,9 +19,7 @@ express_app.use('/add', idolRouter); // Added with prefix for common path, a.k.a
 express_app.use(homeRouter);
 
 // Adding 404 page.
-express_app.use((req, res, next) =>  {
-  res.status(404).send('<h1>The page is not found</h1>');
-});
+express_app.use(exceptionRouter);
 
 // Start the server and listens for requests.
 express_app.listen(9000);
