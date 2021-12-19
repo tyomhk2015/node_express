@@ -14,8 +14,13 @@ express_app.use(bodyParser.urlencoded({extended: false}));
 // Eventhough you can control the flow of requests with express features,
 // it may a good practice to align the router as if you were using use().
 // For the sake of readability and maintenance.
-express_app.use(idolRouter);
+express_app.use('/add', idolRouter); // Added with prefix for common path, a.k.a filtering paths
 express_app.use(homeRouter);
+
+// Adding 404 page.
+express_app.use((req, res, next) =>  {
+  res.status(404).send('<h1>The page is not found</h1>');
+});
 
 // Start the server and listens for requests.
 express_app.listen(9000);
