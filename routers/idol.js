@@ -1,20 +1,23 @@
 const express = require('express');
 const path = require('path');
+const rootPath = require('../util/rootPath');
 
 const router = express.Router();
 
+const idols = [];
+
 router.get('/idol', (req, res, next) => {
-  console.log("In the add-idol middleware.");
-  res.sendFile(path.join(__dirname, '..', 'views', 'idol.html'));
+  res.sendFile(path.join(rootPath, 'views', 'idol.html'));
 });
 
 // app.use() accepts all requests.
 // Accept 'POST' requests only! <=> app.get() accepts only 'GET's.
 router.post('/idol', (req, res, next) => {
-  console.log("In the idol middleware.");
-  console.log(req.body.idol);
+  idols.push({idol: req.body.idol}); // The saved variable will be shares throughout the server.
+  console.log(idols);
   res.redirect('/');
 });
 
 
-module.exports = router;
+exports.router = router;
+exports.idols = idols;

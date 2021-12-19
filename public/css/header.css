@@ -1,0 +1,13 @@
+@charset "UTF-8";
+
+header {
+  background-color: salmon;
+  padding: 8px 4px;
+}
+
+nav > ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  list-style-type: none;
+}
