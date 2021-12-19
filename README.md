@@ -2,7 +2,12 @@
 
 Recording progress of hanging out with Node.js & Express.js
 
-<br id="">
+---
+ - Node.js
+ - <a href="#user-content-express">Express.js</a>
+ - <a href="#user-content-template">Dynamic Content & Template Engine</a>
+---
+
 💡 Node.js
 
 **Breif**
@@ -76,8 +81,8 @@ install --save-dev = install the dependency for the development only.
 install -g         = install the dependency as global, accesible anywhere in the computer.
 </pre>
 
-
-<br id="">
+---
+<br id="express">
 💡 Express.js
 <br>Homepage: <a href="https://expressjs.com/">https://expressjs.com/</a>
 <br>Doc: <a href="https://expressjs.com/en/4x/api.html#app">https://expressjs.com/</a>
@@ -96,11 +101,12 @@ inspired)
 
 Express.js is all about middle wares.
 <br>Middleware: One or more functions that intervene an incoming request until a responses is returned.
+
 <pre>
 Request   =>    Middleware    =>    Middleware    =>    Response => ...
           (req, res, next) = {} | (req, res, next) = {}
 
----
+----
 
 // Allows to add middleware functions.
 express_app.use((req, res, next) => {
@@ -145,8 +151,53 @@ To acquire the correct path for the project, using 'path' feature of express.js 
 <pre>
 const path = require('path');
 ...
-  res.sendFile(path.join(__dirname, '../', 'views', 'home.html'));
+  res.sendFile(path.join(__dirname, '../', 'views', 'home.html'));  << ★★
 ...
 
 // BTW, express.js will automatically handle the HTTP header of the response, text/html.
+
+---
+
+// To get the root path of the app.
+
+const path = require('path');
+module.exports = path.dirname(require.main.filename);
+</pre>
+
+To serve file statically from a different directory.
+<pre>
+// server.js
+
+// Add a read-only path for files in 'public' folder.
+express_app.use(
+  express.static(path.join(__dirname, 'public'))  << ★★
+);
+</pre>
+
+---
+<br id="template">
+💡 Template Engines
+
+<br>Blueprint of how the view of the application should be structured.
+<br>Dynamically changes depending on the data you send to the template.
+<br>Template is a plan that can be reused.
+<br>Engine is a motor or function that fills the template with data and create a normal HTML as output.
+
+**EJS**
+* Uses normal HTML & vanilla JS in the templates.
+<pre>
+// Similar to Ruby on Rails
+&#60;p&#62;&#60;%= name&#62;&#60;p&#62;
+</pre>
+
+**Pug (Jade)**
+* Use minimal HTML & custom template language.
+<pre>
+p #{name}
+</pre>
+
+**Handlebars**
+* Use normal HTML & custom template language.
+<pre>
+&#60;p&#62;&#60;{{name}}&#62;&#60;p&#62;
 </pre>
