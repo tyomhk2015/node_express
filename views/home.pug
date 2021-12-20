@@ -1,0 +1,17 @@
+extends layouts/main-layout.pug
+
+block styles 
+  link(rel="stylesheet", href="/css/main.css")
+
+block content
+  main 
+  h1 Idols (PUG+Layout)
+  p List of all Idols
+  if idols.length > 0 
+    ul 
+      each idol in idols
+        li.card
+          img(src="https://ca.slack-edge.com/T60TDKNJK-U02M1B9BW2J-b718214558d3-512", alt="Owner's image")
+          p #{idol.idol}
+  else
+    p No idols are registered...

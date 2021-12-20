@@ -11,3 +11,8 @@ nav > ul {
   justify-content: space-evenly;
   list-style-type: none;
 }
+
+nav .active {
+  color: aquamarine;
+  text-decoration: none;
+}
