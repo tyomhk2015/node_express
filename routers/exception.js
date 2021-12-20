@@ -6,7 +6,8 @@ const router = express.Router();
 
 router.use((req, res, next) => {
   console.log("Page not found.");
-  res.status(404).sendFile(path.join(rootPath, 'views', '404.html'));
+  // res.status(404).sendFile(path.join(rootPath, 'views', '404.html'));
+  res.status(404).render('404');
 });
 
 module.exports = router;

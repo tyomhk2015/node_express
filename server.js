@@ -8,6 +8,13 @@ const exceptionRouter = require('./routers/exception');
 
 const express_app = express();
 
+// Set global configuration value.
+// view engine: 'Use this template engine when rendering the page!'
+// view: 'The temple resource is here!'
+express_app.set('view engine', 'pug'); // 'Use pug engine for rendering page w/ template'.
+express_app.set('views', 'views') // Default location is ./views/
+
+
 // Parses HTML data.
 // Without this, req.Body will return undefined.
 // req.Body of express.js returns null unless it is parsed to desired data type.
