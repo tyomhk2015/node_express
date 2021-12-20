@@ -1,0 +1,21 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    if idols
+      title  #{idols.length} IDOLS REGISTERED!
+    else 
+      title  Register Idols.
+    link(rel="stylesheet", href="/css/header.css")
+    block styles
+  body
+    header
+      nav
+        ul 
+          li 
+            a(href="/", class=(currentPath === '/' ? 'active' : '')) Home
+          li 
+            a(href="/add/idol", class=(currentPath === '/add/idol' ? 'active' : '')) Add Idol
+    block content
